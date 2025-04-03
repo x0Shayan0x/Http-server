@@ -17,9 +17,9 @@ struct Server
 
     int socket;
 
-    void (*launch)(void);
+    void (*launch)(struct Server *server); // pointer to function that handle server's main behavior
 };
 
-struct Server server_constructor(int domain, int service, int protocol, unsigned long interface, int port, int backlog, void (*launch)(void)); // function prototype for initialising a server object
+struct Server server_constructor(int domain, int service, int protocol, unsigned long interface, int port, int backlog, void (*launch)(struct Server *server)); // function prototype for initialising a server object
 
 #endif
